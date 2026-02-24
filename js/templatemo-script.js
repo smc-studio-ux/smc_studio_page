@@ -33,8 +33,8 @@ $(document).ready(function () {
   });
 
   /* =====================
-     SPA Navigation
-     ===================== */
+   SPA Navigation
+   ===================== */
   $(".tm-nav-link").on("click", function (e) {
     e.preventDefault();
 
@@ -44,11 +44,17 @@ $(document).ready(function () {
 
     if ($next.is($current)) return;
 
+    // 🔥 ACTUALIZAR NAV ACTIVO
+    $(".nav-item").removeClass("active");
+    $(this).parent().addClass("active");
+
     $current.stop(true, true).fadeOut(300, function () {
       $current.removeClass("active");
-
       $next.addClass("active").hide().fadeIn(450);
     });
+
+    // 🔥 Cerrar menú mobile automáticamente
+    $("body").removeClass("menu-open");
   });
 
   /* =====================

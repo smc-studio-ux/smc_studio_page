@@ -88,9 +88,12 @@ p {
 
 .nav-item.active .tm-nav-link,
 .nav-item:hover .tm-nav-link {
-  color: #9cc;
+  color: #00526d;
 }
-
+.smc-logo {
+  max-width: 220px;
+  height: auto;
+}
 /* Page Background */
 .tm-bg {
   position: absolute;
@@ -320,6 +323,7 @@ textarea {
 .form-control::placeholder {
   color: white;
 }
+
 /* =========================
    SPA CONTENT HANDLING
    ========================= */
