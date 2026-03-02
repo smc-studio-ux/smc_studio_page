@@ -350,5 +350,27 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/templatemo-script.js"></script>
     <script src="js/background.js"></script>
+    <script>
+      const nav = document.getElementById("navbar-nav");
+      const toggler = document.querySelector(".navbar-toggler");
+
+      toggler.addEventListener("click", function () {
+        setTimeout(() => {
+          if (nav.classList.contains("show")) {
+            document.body.classList.add("menu-open");
+          } else {
+            document.body.classList.remove("menu-open");
+          }
+        }, 200);
+      });
+
+      // Cerrar menú al hacer click en un link
+      document.querySelectorAll(".tm-nav-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          nav.classList.remove("show");
+          document.body.classList.remove("menu-open");
+        });
+      });
+    </script>
   </body>
 </html>

@@ -430,8 +430,28 @@ textarea {
 }
 
 @media (max-width: 992px) {
+  /* Overlay oscuro global en mobile */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65); /* ajustá intensidad acá */
+    z-index: 1;
+    pointer-events: none;
+  }
+  .tm-container {
+    position: relative;
+    z-index: 2;
+  }
   body.menu-open {
     overflow: hidden;
+  }
+  .tm-bg,
+  .tm-bg-left,
+  .tm-bg-right,
+  .tm-bg-controls-wrapper,
+  .tm-bg-control {
+    display: none !important;
   }
   .tm-col-right {
     min-height: 0;
@@ -444,16 +464,44 @@ textarea {
     position: relative;
     z-index: 2;
   }
+  .tm-bg {
+    display: none !important;
+  }
 
+  .tm-bg-controls-wrapper {
+    display: none !important;
+  }
+
+  .tm-bg-control {
+    display: none !important;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
   #home.tm-content::before {
     content: "";
     position: absolute;
     inset: -40px;
-    background: rgba(0, 0, 0, 0.6);
     z-index: -1;
   }
   .tm-bg-right {
     background-color: rgba(0, 0, 0, 0.7);
+  }
+  .tm-container {
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+
+  main.tm-col-right {
+    height: auto;
+    overflow: visible;
+  }
+
+  .tm-content {
+    overflow: visible;
   }
   .tm-col-left,
   .tm-col-right {
@@ -502,6 +550,17 @@ textarea {
     align-items: center;
     justify-content: center;
     padding-top: 80px;
+
+    /* oculto por defecto */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  /* Cuando Bootstrap lo abre */
+  .tm-nav.show {
+    opacity: 1;
+    visibility: visible;
   }
 
   .tm-nav .navbar-nav {
